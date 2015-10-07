@@ -8,6 +8,9 @@ all: bst
 bst: bst.o
 	$(CC) $(LFLAGS) -o bst bst.o
 
+bst.o: master.h
+	$(CC) $(CFLAGS) -c bst.cpp
+
 .PHONY: clean
 
 clean:

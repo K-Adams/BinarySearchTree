@@ -1,5 +1,8 @@
 #include <iostream>
-//using std namespace;
+#include <fstream>
+#include "master.h"
+
+using namespace std;
 
 
 //here is our main for bst.cpp
