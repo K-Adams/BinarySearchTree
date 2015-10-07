@@ -3,22 +3,28 @@
 //implement the Binary Search tree cpp file
 #include <iostream>
 #include <fstream>
+#include <cstdio>
+#include <string>
+#include <stdio.h>
+
 using namespace std;
 
-void openFile(void)
+void openFile(string input)
 {
-  if(argv[1] == NULL)
+
+  if(input.empty())
     {
       cout<<"Nothing to open"<<endl;
     }
   else
     {
-      ofstream file (argv[1]);
+      ifstream file;
+      file.open(input);
     }
   return;
 }
 
-void closeFile(ofstream file)
+void closeFile(ifstream file)
 {
   if(file.is_open())
     {
@@ -30,10 +36,21 @@ void closeFile(ofstream file)
     }
 }
 
+/*
 void insert(int node);
 void delete(int node);
+*/
 
-void readFile()
+void readFile(ifstream file)
 {
+  int node;
+  string command;
 
+  if(file.is_open())
+    {
+      while(!file.eof())
+	{
+	  (getline(file,command," "));
+	}
+    }
 }
