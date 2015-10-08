@@ -45,15 +45,21 @@ void closeFile(void)
   //void delete(int node);
   void readFile(void)
   {
- //   int node;
+    int node;
       string command;
         if(counter)
            {
-                while(!file.eof())
+                while(file>>command)
                         {
-                  getline(file, command);
-                cout<<command<<endl;
+              //          getline(file, command);
+                        //file >> command;
+                        file >> node;
+                        cout<< "command: " <<command<< "|| node: " <<node<<endl;
+                        if(command == "insert"){
+                //              insert(node);
+                        cout<<"YAY"<<endl;
                         }
             }
+}
 return;
 }
