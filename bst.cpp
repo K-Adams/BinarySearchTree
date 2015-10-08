@@ -10,12 +10,12 @@ using namespace std;
 int main(int argc, char* argv[])
 {
   cout<<"Attempting to open file...."<<endl;
-  sleep(1000);
-  openFile(argv[1]);
+    sleep(1);
+      openFile(argv[1]);
+readFile();
+        cout<<"Attempting to close file...."<<endl;
+          sleep(1);
+            closeFile();
 
-  cout<<"Attempting to close file...."<<endl;
-  sleep(1000);
-  closeFile(argv[1]);
-
-  return EXIT_SUCCESS;  
-}
+              return EXIT_SUCCESS;
+              }
