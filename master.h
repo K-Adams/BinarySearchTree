@@ -20,15 +20,17 @@ void openFile(string input)
     {
       ifstream file;
       file.open(input);
+      cout<<"File stream opened!"<<endl;
     }
   return;
 }
 
-void closeFile(ifstream file)
+void closeFile(string file)
 {
-  if(file.is_open())
+  if(file.is_open())  
     {
       file.close();
+      cout<<"File Stream closed!"<<endl;
     }
   else
     {
@@ -39,7 +41,7 @@ void closeFile(ifstream file)
 /*
 void insert(int node);
 void delete(int node);
-*/
+
 
 void readFile(ifstream file)
 {
@@ -54,3 +56,4 @@ void readFile(ifstream file)
 	}
     }
 }
+*/
