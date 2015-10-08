@@ -8,7 +8,8 @@
 #include <stdio.h>
 
 using namespace std;
-
+ifstream file;
+int counter = 0;
 void openFile(string input)
 {
 
@@ -18,19 +19,20 @@ void openFile(string input)
     }
   else
     {
-      ifstream file;
       file.open(input);
       cout<<"File stream opened!"<<endl;
+        counter = 1;
     }
   return;
 }
 
-void closeFile(string file)
+void closeFile(void)
 {
-  if(file.is_open())  
+  if(counter)
     {
       file.close();
       cout<<"File Stream closed!"<<endl;
+        counter = 0;
     }
   else
     {
@@ -38,22 +40,20 @@ void closeFile(string file)
     }
 }
 
-/*
-void insert(int node);
-void delete(int node);
 
-
-void readFile(ifstream file)
-{
-  int node;
-  string command;
-
-  if(file.is_open())
-    {
-      while(!file.eof())
-	{
-	  (getline(file,command," "));
-	}
-    }
+  //void insert(int node);
+  //void delete(int node);
+  void readFile(void)
+  {
+ //   int node;
+      string command;
+        if(counter)
+           {
+                while(!file.eof())
+                        {
+                  getline(file, command);
+                cout<<command<<endl;
+                        }
+            }
+return;
 }
-*/
