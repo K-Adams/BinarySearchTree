@@ -41,6 +41,7 @@ void closeFile(void)
 }
 
 
+  //void insert(int node);
   //void delete(int node);
 void readFile(void)
 {
@@ -66,4 +67,3 @@ void readFile(void)
   cout<<"Node count: "<<nodecount<<endl;
   return;
 }
-
