@@ -6,22 +6,15 @@
 #include <cstdio>
 #include <string>
 #include <stdio.h>
-#include <list>
 using namespace std;
 ifstream file;
 int counter = 0;
-//template<typename T>
-struct Tree{
-
-  Tree *left, *right;
-  int data;
-  //T value;
-  //Node<int> * right;
-  //Node<int> * left = nullptr;
-  //Node<int> * parent = nullptr;
-}*root = NULL, *parent = NULL, *child = NULL;// Node
-//template<list>
-list<int> tree_list;
+int numOfNodes = 0;
+struct Node {
+        int value;
+        Node * right = nullptr;
+        Node * left = nullptr;
+        }*root = NULL, *p=NULL; // Node
 void openFile(string input)
 {
 
@@ -51,72 +44,76 @@ void closeFile(void)
       return;
     }
 }
-
 int treeSize(void){
-        int s = tree_list.size();
-        return s;
+        return numOfNodes;
 }
-//template<typename T>
-void insert(int Node){
-  int i = 1;
-  Node<int> * n = new Node<int>;
-  n->value = data;
-  Node<int> * temp = new Node<int>;
-  if(tree_list.empty())
-    tree_list.push_front(n);
-  else {
-    temp = tree_list.front();
-    while(i){
-      if((n->value)>(temp->value)&&temp->right!=NULL)
-	temp=temp->right;
-      else if((n->value)>(temp->value)&&temp->right==NULL){
-	n = temp->right;
-	n->parent = temp;
-	i = 0;
-	tree_list.push(n);
-      }
-      else if((n->value)<(temp->value)&&temp->left!=NULL)
-	temp=temp->left;
-      else if((n->value)<(temp->value)&&temp->left==NULL){
-	n = temp->left;
-	n->parent = temp;
-	i = 0;
-	tree_list.push(n);}
-      else if(n->value ==temp->value)
-	i = 0;
-    }
-  }
+  void insert(int number){
+        int i = 1;
+        //Node<T> * n = new Node<T>;
+        //n->value = data;
+        //Node<T> * temp = new Node<T>;
+        if(root == NULL){
+                root = new Node;
+                root->value = number;
+                numOfNodes++;
+                }
+        else {
+                p = root;
+                while(i){
+                        if((number)>(p->value)&&p->right!=NULL)
+                                p=p->right;
+                        else if((number)>(p->value)&&p->right==NULL){
+                                p->right = new Node;
+                                p = p->right;
+                                p->value = number;
+                                p->right = NULL;
+                                p->left = NULL;
+                                i = 0;
+                                numOfNodes++;
+                                }
+                        else if((number)<(p->value)&&p->left!=NULL)
+                                p=p->left;
+                        else if((number)<(p->value)&&p->left==NULL){
+                                 p->left = new Node;
+                                p = p->left;
+                                p->value = number;
+                                p->right = NULL;
+                                p->left = NULL;
+                                i = 0;
+                                numOfNodes++;
+                                }
+                        else if(number ==p->value)
+                                i = 0;
+                        }
+        }
 }
+Node* getRoot(){
+        return root;}
 void preorder(Node *n){
-  if(n){
-    cout<< n->value << " ";
-    preorder(n->left);
-    preorder(n->right);
-  }
-}
+        if(n){
+        cout<< n->value << " ";
+        preorder(n->left);
+        preorder(n->right);
+        }
+        }
   //void delete(int node);
-void readFile(void)
-{
-  int nodecount = 0;
-  int node;
-  string command;
-  if(counter)
-    {
-      while(file>>command)
-	{
-	  //          getline(file, command);
-	  //file >> command;
-	  file >> node;
-	 
-	  cout<< "command: " <<command<< "|| node: " <<node<<endl;
-	  if(command == "insert"){
-	    //              insert(node);
-	    nodecount++;
-	    cout<<"YAY"<<endl;
-	  }
-	}
-    }
-  cout<<"Node count: "<<nodecount<<endl;
-  return;
+  void readFile(void)
+  {
+    int node;
+      string command;
+        if(counter)
+           {
+                while(file>>command)
+                        {
+              //          getline(file, command);
+                        //file >> command;
+                        file >> node;
+                //      cout<< "command: " <<command<< "|| node: " <<node<<endl;
+                        if(command == "insert"){
+                                insert(node);
+                        //cout<<"YAY"<<endl;
+                        }
+            }
 }
-
+return;
+}
