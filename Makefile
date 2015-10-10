@@ -11,6 +11,11 @@ bst: bst.o
 bst.o: master.h
 	$(CC) $(CFLAGS) -c bst.cpp
 
+.PHONY: run
+
+run: ./bst
+	 ./bst ${ARGS}
+
 .PHONY: clean
 
 clean:
