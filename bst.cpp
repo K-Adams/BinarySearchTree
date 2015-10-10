@@ -10,12 +10,15 @@ using namespace std;
 int main(int argc, char* argv[])
 {
   cout<<"Attempting to open file...."<<endl;
-  sleep(1);
-  openFile(argv[1]);
-  readFile();
-  cout<<"Attempting to close file...."<<endl;
-  sleep(1);
-  closeFile();
-  
-  return EXIT_SUCCESS;
-}
+    sleep(1);
+      openFile(argv[1]);
+readFile();
+cout<<"Number of nodes in the bst: " << treeSize()<<endl;
+cout<<"Pre-Order: "<< "";
+preorder(getRoot());
+        cout<<"\nAttempting to close file...."<<endl;
+          sleep(1);
+            closeFile();
+
+              return EXIT_SUCCESS;
+              }
