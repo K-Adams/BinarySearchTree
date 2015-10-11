@@ -1,0 +1,10 @@
+We have completed thus far:
+
+Opening a file stream to the given command line argument
+Reading the file contents of the given file and parsing the "command" statement and the node value
+Closing the File stream
+
+Tracking the amount of nodes in the tree
+Building a binary tree in Pre Order based off the given node values
+Displaying the Pre Order traversal to the console
+Displaying the total amount of nodes to the console
