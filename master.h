@@ -99,6 +99,27 @@ void preorder(Node *n){
   }
 }
 
+void inorder(Node *n)
+{
+  if(n)
+    {
+      inorder(n->left);
+      cout<< n->value<< " ";
+      inorder(n->right);
+    }
+}
+
+void postorder(Node *n)
+{
+  if(n)
+    {
+      inorder(n->left);
+      inorder(n->right);
+      cout<< n->value<<" ";
+    }
+}
+
+
 void readFile(void)
 {
   int node;
