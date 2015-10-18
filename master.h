@@ -190,7 +190,7 @@ void readFile(void)
 {
   int node;
   string command;
-  p = NULL;
+	 p = NULL;
   if(counter)
     {
       while(file>>command)
@@ -201,9 +201,9 @@ void readFile(void)
 	else if(command == "delete"){
 		p=findNode(node);
 		if(p)
-			deleteNode(p);
-	  }
+		deleteNode(p);
+	 	 }
     }
+}
   return;
 }
-
