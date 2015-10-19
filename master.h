@@ -31,7 +31,6 @@ void openFile(string input)
   else
     {
       file.open(input);
-      cout<<"File stream opened!"<<endl;
         counter = 1;
     }
   return;
@@ -43,7 +42,6 @@ void closeFile(void)
   if(counter)
     {
       file.close();
-      cout<<"File Stream closed!"<<endl;
         counter = 0;
     }
   else
