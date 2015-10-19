@@ -28,6 +28,7 @@ int main(int argc, char* argv[])
   cout<<endl<<"Post-Order: "<< "";
   //retrieve the inorder traversal of the tree using getRoot()
   postorder(getRoot());
+  cout<<endl;
   //pause one second
   sleep(1);
   //close the file stream
