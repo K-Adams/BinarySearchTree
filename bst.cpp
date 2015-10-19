@@ -6,22 +6,31 @@
 using namespace std;
 
 
-//here is our main for bst.cpp
+//main
 int main(int argc, char* argv[])
 {
-  cout<<"Attempting to open file...."<<endl;
+  //pause one second
   sleep(1);
+  //open the file referenced by the command line argument
   openFile(argv[1]);
+  //read the given file, parse contents of the file, complete given tasks
   readFile();
+  //return the total number of nodes in the tree
   cout<<"Number of nodes in the bst: " << treeSize()<<endl;
+  //return the tree height using getRoot()
+  cout<<"Height: "<<treeHeight(getRoot())-1<<endl;
   cout<<"Pre-Order: "<< "";
+  //retrieve the preorder traversal of the tree using getRoot()
   preorder(getRoot());
   cout<<endl<<"In-Order: "<< "";
+  //retrieve the inorder traversal of the tree using getRoot()
   inorder(getRoot());
   cout<<endl<<"Post-Order: "<< "";
+  //retrieve the inorder traversal of the tree using getRoot()
   postorder(getRoot());
-  cout<<endl<<"\nAttempting to close file...."<<endl;
+  //pause one second
   sleep(1);
+  //close the file stream
   closeFile();
   
   return EXIT_SUCCESS;
