@@ -7,15 +7,20 @@
 #include <string>
 #include <stdio.h>
 using namespace std;
+//create file stream variable
 ifstream file;
 int counter = 0;
 int numOfNodes = 0;
+
+//initialize Node Struct with left, right, parent aspects
 struct Node {
         int value;
         Node * right = nullptr;
         Node * left = nullptr;
 	Node * par = nullptr;
-        }*root = NULL, *p=NULL, *z=NULL; // Node
+        }*root = NULL, *p=NULL, *z=NULL; // Nodes for root, parent and z node
+        
+// void function openFile to open file stream of command line argument        
 void openFile(string input)
 {
 
@@ -32,6 +37,7 @@ void openFile(string input)
   return;
 }
 
+//void function closeFile to close the file stream
 void closeFile(void)
 {
   if(counter)
@@ -45,6 +51,8 @@ void closeFile(void)
       return;
     }
 }
+
+//int function to return the height. Does a recursive check of the left and right subtrees
 int treeHeight(Node* n){
  int l = 0;
  int r = 0;
@@ -62,9 +70,13 @@ int a = 0;
       return a;
 	}
       }
+
+//int function treeSize returns the total number of nodes in the tree
 int treeSize(void){
   return numOfNodes;
 }
+
+//function treeMin checks for the minimum node in the tree
 Node* treeMin(Node* n){
 	if(n==NULL)
                 return NULL;
@@ -73,6 +85,7 @@ Node* treeMin(Node* n){
  	 return n;
 }		
 
+//void function to insert a node into the tree given certain insert cases
 void insert(int number){
   int i = 1;
   if(root == NULL){
@@ -111,7 +124,9 @@ void insert(int number){
 	i = 0;
     }
   }
-}           
+}      
+
+//void deleteNode function deletes a given node based on certain cases
 void deleteNode(Node* n){
 	p = NULL;;
         if(n->right == NULL && n->left !=NULL){
@@ -142,23 +157,6 @@ void deleteNode(Node* n){
 			n->value = p->value;
 			p->par->left = NULL;
 			p->par = NULL;
-			//z = p->par;;
-			//p->par->left = NULL;
-		//	p->par = n->par;
-	//		z->left = NULL;
-	//		p->right = n->right;
-          //              p->right->par = p;
-            //            p->left = n->left;
-              //          p->left->par = p;
-		//	if(n->par == NULL)
-                  //              root = p;
-		//	else if(n == n->par->left)
-		//		p->par->left = p;
-		//	else if(n==n->par->right)
-		//		p->par->right = p;
-		//	n->right = NULL;
-		//	n->par = NULL;
-//			n->left = NULL;
 }
 		else if(p->par != n && p->right != NULL){
 			z = p->right;
@@ -217,9 +215,13 @@ void deleteNode(Node* n){
 numOfNodes--;
 		
 }
+
+//function getRoot gets the root of the tree
 Node* getRoot(){
   return root;
 }
+
+//function findNode finds a specific node in the tree
 Node* findNode(int number){
 	p = root;
           if(p == NULL)
@@ -238,7 +240,7 @@ Node* findNode(int number){
       		}
 	return NULL;
  	}
-
+//Recursive preorder function displays the preorder traversal of the tree. Prints from the left of the node
 void preorder(Node *n){
   if(n){
     cout<< n->value << " ";
@@ -247,6 +249,7 @@ void preorder(Node *n){
   }
 }
 
+//Recursive inorder function displays the inorder traversal of the tree.Prints from the bottom of the node
 void inorder(Node *n)
 {
   if(n)
@@ -257,6 +260,7 @@ void inorder(Node *n)
     }
 }
 
+//REcursive postorder function displays the postorder traversal of the tree. Prints from the right of the node
 void postorder(Node *n)
 {
   if(n)
@@ -267,7 +271,8 @@ void postorder(Node *n)
     }
 }
 
-
+//void function readFile reads the given command line argument file, parses the string and integers. Compares if the string is
+//insert or delete, based on that string compare, it will do the specified task with the related integer value
 void readFile(void)
 {
   int node;
