@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
   //return the total number of nodes in the tree
   cout<<"Number of nodes in the bst: " << treeSize()<<endl;
   //return the tree height using getRoot()
-  cout<<"Height: "<<treeHeight(getRoot())-1<<endl;
+  cout<<"Height of the bst: "<<treeHeight(getRoot())-1<<endl;
   cout<<"Pre-Order: "<< "";
   //retrieve the preorder traversal of the tree using getRoot()
   preorder(getRoot());
